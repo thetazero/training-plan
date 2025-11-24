@@ -1,18 +1,18 @@
-import type { DayPlan } from '../lib/data';
+import type { WeekPlan } from '../lib/data';
 
 interface WeekViewProps {
-  days: DayPlan[];
+  plan: WeekPlan;
 }
 
-export function WeekView({ days }: WeekViewProps) {
-  const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+export function WeekView({ plan }: WeekViewProps) {
+  const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
   return (
-    <div className="w-full overflow-x-auto">
-      <div className="grid grid-cols-7 gap-2 min-w-max">
+    <div className="w-full">
+      <div className="grid grid-cols-7 gap-2">
         {/* Day columns */}
-        {days.map((day, index) => (
-          <div key={index} className="border border-gray-700 bg-gray-800 rounded-lg p-4 min-w-32">
+        {plan.days.map((day, index) => (
+          <div key={index} className="border border-gray-700 bg-gray-800 rounded-lg p-4">
             <div className="font-semibold text-lg mb-2">
               {dayNames[day.date.getDay()]}
             </div>
@@ -34,12 +34,9 @@ export function WeekView({ days }: WeekViewProps) {
       {/* Aggregate metrics row */}
       <div className="mt-4 border border-gray-700 bg-gray-800 rounded-lg p-4">
         <div className="font-semibold text-lg mb-2">Weekly Totals</div>
-        <div className="grid grid-cols-7 gap-2">
-          {days.map((_, index) => (
-            <div key={index} className="min-w-32">
-              {/* Empty for now */}
-            </div>
-          ))}
+        <div className="text-sm">
+          <span className="font-medium">Total Miles: </span>
+          {plan.totalWeeklyMiles()}
         </div>
       </div>
     </div>

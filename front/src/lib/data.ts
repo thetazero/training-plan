@@ -1,9 +1,10 @@
-enum RunKind {
+export enum RunKind {
     EASY = 'easy',
     TEMPO = 'tempo',
+    INTERVALS = 'intervals',
 }
 
-interface Run {
+export interface Run {
     kind: RunKind;
     totalMiles(): number;
 }
@@ -19,6 +20,16 @@ export class EasyRun implements Run {
 
     totalMiles(): number {
         return this.miles;
+    }
+}
+
+export class Strides {
+    count: number;
+    durationMeters: number;
+
+    constructor(count: number, durationMeters: number) {
+        this.count = count;
+        this.durationMeters = durationMeters;
     }
 }
 
@@ -126,5 +137,26 @@ export interface LiftPlan {
 export interface DayPlan {
     lift?: LiftPlan;
     run?: Run;
+    strides?: Strides;
     date: Date;
+}
+
+export class WeekPlan {
+    days: DayPlan[];
+    
+    constructor(days: DayPlan[]) {
+        this.days = days;
+    }
+
+    totalWeeklyMiles(): number {
+        return this.days.reduce((total, day) => {
+            return total + (day.run ? day.run.totalMiles() : 0);
+        }, 0);
+    }
+
+    totalStrideMeters(): number {
+        return this.days.reduce((total, day) => {
+            return total + (day.strides ? day.strides.count * day.strides.durationMeters : 0);
+        }, 0);
+    }
 }
