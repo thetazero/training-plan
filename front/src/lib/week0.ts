@@ -1,4 +1,4 @@
-import { EasyRun, Exercise, WeekPlan, TempoRun } from "./data";
+import { EasyRun, Exercise, WeekPlan, TempoRun, Strides } from "./data";
 import { IntervalsRun, Rep, Rest, Set } from "./intervals";
 import { quickLiftSets } from "./util";
 
@@ -6,6 +6,7 @@ export const week0: WeekPlan = new WeekPlan([
     {
         date: new Date("2025-11-24"),
         run: new EasyRun(3),
+        strides: new Strides(3, 100),
         lift: {
             exercises: new Map(
                 [
@@ -138,5 +139,6 @@ export const week0: WeekPlan = new WeekPlan([
     {
         date: new Date("2025-11-30"),
         run: new EasyRun(3.5),
+        strides: new Strides(3, 100),
     }
 ]);

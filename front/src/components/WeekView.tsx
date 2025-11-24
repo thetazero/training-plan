@@ -16,17 +16,22 @@ export function WeekView({ plan }: WeekViewProps) {
   const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
   return (
-    <div className="w-full">
-      <div className="grid grid-cols-7 gap-2">
-        {/* Day columns */}
-        {plan.days.map((day, index) => (
-          <div key={index} className="border border-gray-700 bg-gray-800 rounded-lg p-4">
-            <div className="font-semibold text-lg mb-2">
-              {dayNames[day.date.getDay()]}
+    <div className="w-full space-y-2">
+      {/* Day rows */}
+      {plan.days.map((day, index) => (
+        <div key={index} className="border border-gray-700 bg-gray-800 rounded-lg p-4">
+          <div className="grid grid-cols-4 gap-4">
+            {/* Day column */}
+            <div>
+              <div className="font-semibold text-lg">
+                {dayNames[day.date.getDay()]}
+              </div>
+              <div className="text-sm text-gray-400">
+                {day.date.toLocaleDateString()}
+              </div>
             </div>
-            <div className="text-sm text-gray-400 mb-3">
-              {day.date.toLocaleDateString()}
-            </div>
+
+            {/* Run column */}
             <div>
               {day.run && (
                 <>
@@ -40,15 +45,23 @@ export function WeekView({ plan }: WeekViewProps) {
                   )}
                 </>
               )}
-              {day.strides && <StridesSummary strides={day.strides} />}
+            </div>
+
+            {/* Lift column */}
+            <div>
               {day.lift && <LiftSummary lift={day.lift} />}
             </div>
-          </div>
-        ))}
-      </div>
 
-      {/* Aggregate metrics row */}
-      <div className="mt-4 border border-gray-700 bg-gray-800 rounded-lg p-4">
+            {/* Strides column */}
+            <div>
+              {day.strides && <StridesSummary strides={day.strides} />}
+            </div>
+          </div>
+        </div>
+      ))}
+
+      {/* Summary row */}
+      <div className="border border-gray-700 bg-gray-800 rounded-lg p-4">
         <div className="font-semibold text-lg mb-2">Weekly Totals</div>
         <div className="text-sm">
           <span className="font-medium">Total Miles: </span>
