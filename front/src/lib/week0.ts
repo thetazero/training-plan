@@ -54,7 +54,7 @@ export const week0: WeekPlan = new WeekPlan([
                 [
                     [
                         Exercise.DumbbellInclineBench,
-                        quickLiftSets(8, [50, 70, 80])
+                        quickLiftSets(8, [50, 80, 90])
                     ],
                     [
                         Exercise.BicepCurl,
@@ -70,7 +70,7 @@ export const week0: WeekPlan = new WeekPlan([
                     ],
                     [
                         Exercise.DumbbellRow,
-                        quickLiftSets(12, [35, 40])
+                        quickLiftSets(12, [35, 45])
                     ],
                 ]
             )
@@ -84,19 +84,19 @@ export const week0: WeekPlan = new WeekPlan([
                 [
                     [
                         Exercise.BulgarianSplitSquat,
-                        quickLiftSets(8, [40, 60, 70])
+                        quickLiftSets(8, [40, 60, 60])
                     ],
                     [
                         Exercise.Deadlift,
                         quickLiftSets(8, [95, 115])
                     ],
                     [
-                        Exercise.DumbbellRow,
-                        quickLiftSets(12, [35, 40])
+                        Exercise.TibBar,
+                        quickLiftSets(12, [25, 25, 25])
                     ],
                     [
-                        Exercise.Pullup,
-                        quickLiftSets(6, [40, 50])
+                        Exercise.SingleLegCalfRaise,
+                        quickLiftSets(10, [40, 50])
                     ]
                 ]
             )
@@ -114,7 +114,7 @@ export const week0: WeekPlan = new WeekPlan([
                 [
                     [
                         Exercise.DumbbellInclineBench,
-                        quickLiftSets(8, [50, 70, 70])
+                        quickLiftSets(8, [50, 80, 80])
                     ],
                     [
                         Exercise.BicepCurl,
@@ -130,7 +130,7 @@ export const week0: WeekPlan = new WeekPlan([
                     ],
                     [
                         Exercise.DumbbellRow,
-                        quickLiftSets(12, [35, 35])
+                        quickLiftSets(12, [35, 45])
                     ],
                 ]
             )
