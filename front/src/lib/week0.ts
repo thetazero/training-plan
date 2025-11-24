@@ -1,10 +1,33 @@
-import { EasyRun, WeekPlan } from "./data";
+import { EasyRun, Exercise, WeekPlan } from "./data";
 import { IntervalsRun, Rep, Rest, Set } from "./intervals";
+import { quickLiftSets } from "./util";
 
 export const week0: WeekPlan = new WeekPlan([
     {
         date: new Date("2025-11-24"),
         run: new EasyRun(3),
+        lift: {
+            exercises: new Map(
+                [
+                    [
+                        Exercise.BulgarianSplitSquat,
+                        quickLiftSets(8, [40, 60, 70])
+                    ],
+                    [
+                        Exercise.Deadlift,
+                        quickLiftSets(8, [95, 115])
+                    ],
+                    [
+                        Exercise.TibBar,
+                        quickLiftSets(12, [25, 25, 25])
+                    ],
+                    [
+                        Exercise.SingleLegCalfRaise,
+                        quickLiftSets(10, [40, 50])
+                    ]
+                ]
+            )
+        }
     },
     {
         date: new Date("2025-11-25"),

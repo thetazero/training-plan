@@ -131,8 +131,13 @@ export enum Exercise {
     UprightRow = "Upright Row",
 }
 
+export interface SetPlan {
+    reps: number;
+    weightLbs: number;
+}
+
 export interface LiftPlan {
-    exercises: Map<Exercise, { sets: number; reps: number }>;
+    exercises: Map<Exercise, SetPlan[]>;
 }
 export interface DayPlan {
     lift?: LiftPlan;
